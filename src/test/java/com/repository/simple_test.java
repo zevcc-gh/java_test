@@ -60,7 +60,7 @@ class CryptoClientAPITest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/testTradeAndCandles.csv", numLinesToSkip = 1)
-    public void testTradeAndCandles(String instrument_name, String interval){
+    public void testTradeAndCandles(String instrument_name, String interval, int test_candle_size){
         Hashtable<String, Long> intervalToTimestamp = getIntervalToTimeStamp();
         CryptoClient c = new CryptoClient(baseUrl, APIKey);
 
@@ -70,7 +70,9 @@ class CryptoClientAPITest {
         // we can compare them directly without further sorting
 
         // get candle first
-        int test_candle_size = candles.size();
+        if (test_candle_size == 0){
+            test_candle_size = candles.size();
+        };
         // will loop trade later, need to save the current index
         int trade_cur_index = 0;
         for (int i = 0; i < test_candle_size; ++i){
@@ -86,7 +88,7 @@ class CryptoClientAPITest {
             JSONObject trade = (JSONObject) trades.get(trade_cur_index);
             Long trade_timestamp = (Long) trade.get("t");
             BigDecimal trade_price = new BigDecimal(trade.get("p").toString());
-            BigDecimal trade_o = trade_price;
+            BigDecimal trade_o = trade_price; //open price = first trade price
             BigDecimal trade_h = trade_price;
             BigDecimal trade_l = trade_price;
             BigDecimal trade_c = trade_price;
@@ -107,7 +109,7 @@ class CryptoClientAPITest {
                     trade_l = trade_price;
                 }
             }
-            trade_c = trade_price;
+            trade_c = trade_price; //close price = last trade price
 
 
             //compare candle data and trade data
