@@ -1,2 +1,6 @@
-com/repository/CryptoClient.java
- com.repository.CryptoClient
+com/repository/CryptoClientAPI.java
+ com.repository.CryptoClientAPI
+com/repository/CryptoClientInterface.java
+ com.repository.CryptoClientInterface
+com/repository/CryptoClientMock.java
+ com.repository.CryptoClientMock

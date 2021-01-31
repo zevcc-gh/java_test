@@ -1,7 +1,7 @@
 package com.repository;
 
 import org.junit.jupiter.api.BeforeAll;
-import com.repository.CryptoClient.*;
+import com.repository.CryptoClientMock.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -62,10 +62,10 @@ class CryptoClientAPITest {
     @CsvFileSource(resources = "/testTradeAndCandles.csv", numLinesToSkip = 1)
     public void testTradeAndCandles(String instrument_name, String interval, int test_candle_size){
         Hashtable<String, Long> intervalToTimestamp = getIntervalToTimeStamp();
-        CryptoClient c = new CryptoClient(baseUrl, APIKey);
+        CryptoClientMock clientMock = new CryptoClientMock();
 
-        JSONArray candles = c.getOHLCListFromGetCandleStick(instrument_name, interval);
-        JSONArray trades = c.getTradeDataFromGetTrade(instrument_name);
+        JSONArray candles = clientMock.getOHLCListFromGetCandleStick(instrument_name, interval);
+        JSONArray trades = clientMock.getTradeDataFromGetTrade(instrument_name);
         // those two arrays should be ordered by timestamp
         // we can compare them directly without further sorting
 

@@ -24,3 +24,5 @@ It means we are going to test
 # TODO:
 API call is not supported due to absense of API key.
 The test case and function calling now use JSON file instead.
+
+If we have API key, we can use class `CryptoClientAPI` to get data.
