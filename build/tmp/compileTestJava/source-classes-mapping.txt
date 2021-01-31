@@ -1,2 +1,2 @@
-com/repository/simple_test.java
+com/repository/CryptoClientAPITest.java
  com.repository.CryptoClientAPITest
