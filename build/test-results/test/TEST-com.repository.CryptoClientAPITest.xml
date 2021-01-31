@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.repository.CryptoClientAPITest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-01-31T07:43:58" hostname="DESKTOP-FLOJMVO" time="0.06">
+  <properties/>
+  <testcase name="[1] BTC_USDT, 5m" classname="com.repository.CryptoClientAPITest" time="0.055"/>
+  <testcase name="[2] ETH_USDT, 5m" classname="com.repository.CryptoClientAPITest" time="0.003"/>
+  <system-out><![CDATA[https://uat-api.3ona.co/v2/
+a12345
+https://uat-api.3ona.co/v2/
+a12345
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
